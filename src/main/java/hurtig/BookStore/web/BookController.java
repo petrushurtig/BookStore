@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import hurtig.BookStore.domain.Book;
 import hurtig.BookStore.domain.BookRepository;
+import hurtig.BookStore.domain.CategoryRepository;
 
 @Controller
 public class BookController {
 	
 	@Autowired
 	private BookRepository repository;
+	@Autowired
+	private CategoryRepository crepository;
 	
 	@RequestMapping("/booklist")
 	public String bookslist(Model model) {
@@ -34,6 +37,7 @@ public class BookController {
 	@RequestMapping(value="/add")
 	public String addBook(Model model) {
 		model.addAttribute("book", new Book());
+		model.addAttribute("categorys", crepository.findAll());
 		return "addBook";
 	}
 	@RequestMapping(value="/edit/{id}", method= RequestMethod.GET)
