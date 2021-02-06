@@ -1,5 +1,5 @@
 package hurtig.BookStore;
-
+/*
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import hurtig.BookStore.domain.Book;
 import hurtig.BookStore.domain.BookRepository;
 import hurtig.BookStore.domain.Category;
-/*
+
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class BookRepositoryTest {
