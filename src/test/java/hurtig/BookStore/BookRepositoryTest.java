@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import hurtig.BookStore.domain.Book;
 import hurtig.BookStore.domain.BookRepository;
 import hurtig.BookStore.domain.Category;
-
+/*
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class BookRepositoryTest {
@@ -37,3 +37,4 @@ public class BookRepositoryTest {
 	}
 	
 }
+*/
