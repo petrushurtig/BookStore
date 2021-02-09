@@ -26,13 +26,13 @@ public class BookController {
 	private CategoryRepository crepository;
 	
 	//Login page
-	@RequestMapping(value="/login")
+	@RequestMapping(value="/")
 	public String login() {
 		return "login";
 	}
 	
 	//show all books
-	@RequestMapping("/")
+	@RequestMapping("/booklist")
 	public String bookslist(Model model) {
 		model.addAttribute("books", repository.findAll());
 		return "booklist";
