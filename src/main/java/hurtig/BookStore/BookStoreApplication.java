@@ -15,7 +15,7 @@ import hurtig.BookStore.domain.Book;
 import hurtig.BookStore.domain.BookRepository;
 import hurtig.BookStore.domain.Category;
 import hurtig.BookStore.domain.CategoryRepository;
-import hurtig.BookStore.domain.User;
+import hurtig.BookStore.domain.Users;
 import hurtig.BookStore.domain.UserRepository;
 
 @SpringBootApplication
@@ -30,23 +30,14 @@ public class BookStoreApplication {
 	@Bean
 	public CommandLineRunner bookDemo(BookRepository repository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
-			log.info("save a couple of books");
-			crepository.save(new Category("Sota"));
-			crepository.save(new Category("Historia"));
-			crepository.save(new Category("Tieto"));
-			
-			repository.save(new Book("Tuntematon sotilas", "Väinö Linna", 1954, "123-131313", 19.99, crepository.findByName("Sota").get(0)));
-			repository.save(new Book("Leijat Helsingin yllä", "Kjell Westö", 1996, "333-333222", 15.5, crepository.findByName("Historia").get(0)));
-			
-			User user1 = new User("user","$2a$10$Hnx5FWK5ffF8F/uvJS5bruQnv3ajttuItoSbKxaTjGsvsmijgdivm", "USER");
-			User user2 = new User("admin","$2a$10$ONBTRA8eOd.6woOmY0dzUuLuCQQ9AsjyFXk8wY2u/KrQCbwng7C86", "ADMIN");
-			urepository.save(user1);
-			urepository.save(user2);
-			
-			log.info("fetch all books");
-			for (Book book : repository.findAll()) {
-				log.info(book.toString());
-			}
+	log.info("save a couple of books");
+	crepository.save(new Category("History"));
+	repository.save(new Book("Da Vinci -koodi", "Dan Brown", 2003, "123-21321", 20.00, crepository.findByName("History").get(0)));
+	
+	Users user1 = new Users("user", "$2a$10$ikpsGY/lLQ/QmLijqYgAVO1iiS9E6HRkZ6OGeGXNevxlW.ad/O0Qa", "USER");
+	Users user2 = new Users("admin", "$2a$10$z1J4xi1EA2ttoROyyzjpjOn4Mia8AHercTgjHionZVTjXy7HopoQO", "ADMIN");
+	urepository.save(user1);
+	urepository.save(user2);
 		};
 	}
 

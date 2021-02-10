@@ -3,7 +3,7 @@ package hurtig.BookStore.domain;
 import javax.persistence.*;
 
 @Entity
-public class User {
+public class Users {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,10 @@ public class User {
 	@Column(name ="role", nullable = false)
 	private String role;
 	
-	public User() {
+	public Users() {
 	}
 	
-	public User(String username, String passwordHash, String role) {
+	public Users(String username, String passwordHash, String role) {
 		super();
 		this.username = username;
 		this.passwordHash = passwordHash;
